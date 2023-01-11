@@ -10,8 +10,8 @@ pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesserac
 
 # Open the JSON file for reading
 with open("data\LocalMonitorSettings.json", "r") as infile:
-    # Load the data from the file
-    data = json.load(infile)
+  # Load the data from the file
+  data = json.load(infile)
 
 # You can access the variables like this:
 zone_left = data["zone_left"]
@@ -25,14 +25,12 @@ zone = (zone_left, zone_top, zone_width, zone_height)  # (left, top, width, heig
 # Set the path to save the image
 image_path = "data\zones\LocalMonitorRegion.png"
 
-# Set the initial number to an empty string
+# Setup strings for comparison
 prev_string = ""
 null_string = ""
 
-# Get a screenshot of the zone
+# Get a screenshot of the zone and save it
 screenshot = pyautogui.screenshot(region=zone)
-
-# Save the image to disk
 screenshot.save(image_path)
 
 # Extract the text from the image using OCR
@@ -52,14 +50,10 @@ while True:
   # Print the extracted text
   print("Local Monitor: " + text)
   
-  
   # Check if the number has changed
   if text != prev_string:
     # Make the beep sound
     winsound.Beep(frequency=500, duration=300)
     prev_string = text
-    
   elif text != null_string:
-  
-    
     time.sleep(5)

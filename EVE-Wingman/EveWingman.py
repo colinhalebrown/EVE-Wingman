@@ -33,7 +33,6 @@ def button1_script():
         proc1.terminate()
         proc1 = None
         btn1.config(bg=BackgroundColor, fg=TextColor)
-
     else:
         # Start the script by creating a new process
         proc1 = subprocess.Popen(["python", "scripts\LocalMonitor.py"])
@@ -48,7 +47,6 @@ def button2_script():
         proc2.terminate()
         proc2 = None
         btn2.config(bg=BackgroundColor, fg=TextColor)
-
     else:
         # Start the script by creating a new process
         proc2 = subprocess.Popen(["python", "scripts\EnemyOnGrid.py"])
@@ -63,7 +61,6 @@ def button3_script():
         proc3.terminate()
         proc3 = None
         btn3.config(bg=BackgroundColor, fg=TextColor)
-
     else:
         # Start the script by creating a new process
         proc3 = subprocess.Popen(["python", "scripts\RatOnGrid.py"])
@@ -82,12 +79,11 @@ def tool_selector():
     
   if n == "Local Monitor":
     print("Local Monitor Settings Loaded")
-    
+
     # Load The Settings For Local Monitor From JSON
     selected_tool.configure(text="Local Monitor Loaded")
     FileLocal = "data\LocalMonitorSettings.json"
     load_settings(FileLocal)
-
   elif n == "Enemy on Grid":
     print("Enemy on Grid Settings Loaded")
     
@@ -95,7 +91,6 @@ def tool_selector():
     selected_tool.configure(text="Enemy on Grid Loaded")
     FileLocal = "data\EnemyOnGridSettings.json"
     load_settings(FileLocal)
-
   elif n == "Rat on Grid":
     print("Rat on Grid Settings Loaded")
     
@@ -103,7 +98,6 @@ def tool_selector():
     selected_tool.configure(text="Rat on Grid Loaded")
     FileLocal = "data\RatOnGridSettings.json"
     load_settings(FileLocal)
-
   else:
     print("Select an option to load.")
 
@@ -147,19 +141,19 @@ def load_settings(FileDest):
     # Load the data from the file
     data = json.load(infile)
 
-# You can access the variables like this:
+  # You can access the variables like this:
   zone_left = data["zone_left"]
   zone_top = data["zone_top"]
   zone_width = data["zone_width"]
   zone_height = data["zone_height"]
 
-# Enable Entires
+  # Enable Entires
   enable_entry()
 
-# Clear Entries
+  # Clear Entries
   clear_entries()
 
-# Insert Saved Values
+  # Insert Saved Values
   Lentry.insert(0, zone_left)
   Tentry.insert(0, zone_top)
   Wentry.insert(0, zone_width)
@@ -190,9 +184,8 @@ def preview_zone():
     # Set the path to save the image
     image_path = "data\content\zonepreview.png"
 
-    # Get the screenshot of the zone
+    # Get the screenshot of the zone and save it
     screenshot = pyautogui.screenshot(region=zone)
-    # Save the image to disk
     screenshot.save(image_path)
 
     # Create popup window
@@ -205,22 +198,28 @@ def preview_zone():
 
     # Create Header Frame
     popup_header = Frame(popup, bg=BackgroundColor)
+    # Header Frame Content
     popup_title = Label(popup_header, text="Eve Wingman Zone Preview", bg=BackgroundColor, fg=TextColor, padx=6, pady=3, font=20)
-    popup_title.grid(column=0, row=0)
     preview_screenshot = PhotoImage(file=image_path)
     preview_image= Label(popup_header, image=preview_screenshot, bd=6, bg=BackgroundColor)
     preview_image.image = preview_screenshot
+    # Visualize Header Frame Content
+    popup_title.grid(column=0, row=0)
     preview_image.grid(column=0, row=1)
+    # Pack Header Frame Content
     popup_header.pack(expand = False, fill = BOTH, side = TOP)
 
     # Create Options Menu
     options_menu = Frame(popup, bg=BackgroundColor)
+    # Option Menu Content
     close_preview = Button(options_menu, text="Return", command=popup_manager, bg=BackgroundColor, fg=TextColor, padx=2, pady=1, bd=1)
     savebtn = Button(options_menu, text="Save", command=save_settings, bg=BackgroundColor, fg=TextColor, padx=2, pady=1, bd=1)
     spacer1 = Label(options_menu, text="", bg=BackgroundColor, padx=1)
+    # Visualize Option Menu Content
     close_preview.grid(column=0, row=0)
     spacer1.grid(column=1, row=0)
     savebtn.grid(column=2 ,row=0)
+    # Pack Option Menu Content
     options_menu.pack(expand = False, fill = BOTH, side = BOTTOM)
 
 def clear_entries():
