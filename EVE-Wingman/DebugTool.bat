@@ -1,0 +1,3 @@
+python EveWingman.py
+
+pause
