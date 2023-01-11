@@ -12,5 +12,9 @@ Tested on Python 3.11.1
 3. Install Libraries
 With Python3 installed use pip to install the following libraries
 
+* pyautogui
+* pytesseract
+* tkinter
+
 ## Setup
 To setup EVE Wingman install the Pre-requisites, extract the EVE Wingmand folder and run the EVEWingman.py script.  

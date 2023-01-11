@@ -3,7 +3,6 @@ import pytesseract
 from PIL import Image
 import time
 import winsound
-import os
 import json
 
 # Define PATH for your tesseract installation (default location: C:/Program Files/Tesseract-OCR/tesseract.exe)
@@ -51,7 +50,7 @@ while True:
   text = pytesseract.image_to_string(Image.open(image_path))
 
   # Print the extracted text
-  print("Local Monitor: Prev: [" + prev_string + "] Current: [" + text + "]")
+  print("Local Monitor: " + text)
   
   
   # Check if the number has changed
