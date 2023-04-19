@@ -5,7 +5,7 @@ A vision based tool for ratting and mining in Eve Online
 1. EVE Wingman requires Tesseract to read text off of your screen.
 Instructions to download tesseract for your OS can be found [Here](https://tesseract-ocr.github.io/tessdoc/Installation.html)
 
-2. EVE Wingmand requires Python and its ascosiated libraries to run.
+2. EVE Wingman requires Python and its ascosiated libraries to run.
 Instructions to download Python3 for you OS can be found [Here](https://www.python.org/downloads/)
 Tested on Python 3.11.1
 

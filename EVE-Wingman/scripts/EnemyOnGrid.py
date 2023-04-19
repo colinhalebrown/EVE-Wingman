@@ -22,7 +22,7 @@ zone = (zone_left, zone_top, zone_width, zone_height)  # (left, top, width, heig
 image_path = "data\zones\EnemyOnGridRegion.png"
 
 # Initialize a variable to store the previous count of colored pixels
-dead_pixel_count = 100
+dead_pixel_count = 200
 
 while True:
   # Get the screenshot of the zone
@@ -42,7 +42,7 @@ while True:
   for row in range(rows):
     for col in range(cols):
       # Check if the pixel is within the range of colors
-      if 255 >= image[row][col][0] >= 160 and 180 >= image[row][col][1] >= 121 and 25 >= image[row][col][2] >= 0:
+      if 255 >= image[row][col][0] >= 130 and 180 >= image[row][col][1] >= 90 and 25 >= image[row][col][2] >= 0:
         color_pixels += 1
 
   # Print the number of color pixels
